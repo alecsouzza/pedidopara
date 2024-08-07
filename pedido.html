@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pedido</title>
+<style>
+    body {
+        
+        max-width: 800px;
+        min-width: 280px;
+        margin: 0;
+        width: 100vh;
+        height: 100vh;
+        overflow: hidden; /* Impede a rolagem da tela */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #f0f0f0;
+        background-image: url(imagens/amorzinho.png);
+        
+        background-size: 100% 100%;
+    }
+
+    #pergunta {
+        text-align: center;
+        font-size: 5em;
+        margin-bottom: 20px;
+        color: white;
+    }
+
+    #btns {
+        display: flex;
+        gap: 10px; /* Define o espaçamento entre os botões */
+        
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+        position: fixed; /* Fixa os botões na tela */
+        font-size: 3em;
+    }
+
+    #btnSim {
+        left: 175px; /* Distância do botão "Sim" em relação à borda esquerda */
+    }
+
+    a {
+        text-decoration: none;
+        color: white;
+    }
+</style>
+</head>
+<body>
+    <div id="pergunta">
+        QUER NAMORAR COMIGO ??
+    </div>
+    <div id="btns">
+        <button id="btnSim"><a href="https://www.youtube.com/watch?v=laIunbBlJtY">SIM</a></button>
+        <button id="btnNao">NÃO</button>
+    </div>
+
+    <script>
+        // Obtém o botão "Sim"
+        var botaoSim = document.getElementById("btnSim");
+        // Obtém o botão
+        var botao = document.getElementById("btnNao");
+
+        botaoSim.addEventListener("click", aceitou);
+
+        function aceitou () {
+            alert('Estamos namorando :)');
+            
+            
+        }
+        // Adiciona um ouvinte de evento mouseover ao botão
+        botao.addEventListener("mouseover", function() {
+            // Obtém a largura e altura da janela do navegador
+            var larguraJanela = window.innerWidth;
+            var alturaJanela = window.innerHeight;
+
+            // Calcula uma nova posição aleatória para o botão
+            var novoTopo = Math.random() * (alturaJanela - 50);
+            var novoLeft = Math.random() * (larguraJanela - 150);
+
+            // Define a nova posição do botão
+            botao.style.top = novoTopo + "px";
+            botao.style.left = novoLeft + "px";
+        });
+    </script>
+</body>
+</html>
